@@ -1,0 +1,278 @@
+import { useState } from 'react'
+import '../styles/App.css'
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    alert('Thank you for your message! We will get back to you soon.')
+    setFormData({ name: '', email: '', message: '' })
+  }
+
+  return (
+    <div style={styles.page}>
+      {/* Hero Section */}
+      <section style={styles.hero}>
+        <div className="container" style={styles.container}>
+          <h1 style={styles.title}>Contact Us</h1>
+          <p style={styles.subtitle}>
+            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Form & Info */}
+      <section style={styles.contentSection}>
+        <div className="container" style={styles.container}>
+          <div style={styles.contentGrid}>
+            {/* Contact Form */}
+            <div style={styles.formContainer}>
+              <h2 style={styles.formTitle}>Send us a Message</h2>
+              <form onSubmit={handleSubmit} style={styles.form}>
+                <div style={styles.formGroup}>
+                  <label htmlFor="name" style={styles.label}>Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    style={styles.input}
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div style={styles.formGroup}>
+                  <label htmlFor="email" style={styles.label}>Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    style={styles.input}
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div style={styles.formGroup}>
+                  <label htmlFor="message" style={styles.label}>Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows="5"
+                    style={styles.textarea}
+                    placeholder="How can we help you?"
+                  />
+                </div>
+
+                <button type="submit" style={styles.submitButton}>
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            {/* Contact Info */}
+            <div style={styles.infoContainer}>
+              <h2 style={styles.infoTitle}>Get in Touch</h2>
+              
+              <div style={styles.infoItem}>
+                <div style={styles.infoIcon}>📍</div>
+                <div>
+                  <h3 style={styles.infoSubtitle}>Address</h3>
+                  <p style={styles.infoText}>Online </p>
+                  <p style={styles.infoText}>Bomet</p>
+                </div>
+              </div>
+
+              <div style={styles.infoItem}>
+                <div style={styles.infoIcon}>📞</div>
+                <div>
+                  <h3 style={styles.infoSubtitle}>Phone</h3>
+                  <p style={styles.infoText}>(+254) 708-808-737</p>
+                  
+                </div>
+              </div>
+
+              <div style={styles.infoItem}>
+                <div style={styles.infoIcon}>✉️</div>
+                <div>
+                  <h3 style={styles.infoSubtitle}>Email</h3>
+                  <p style={styles.infoText}>kipyegontooamos@gmail.com</p>
+                  <p style={styles.infoText}>kipyegontooamos@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+const styles = {
+  page: {
+    minHeight: '100vh',
+  },
+  hero: {
+    background: 'linear-gradient(135deg, #f0f9ff, #f5f3ff)',
+    padding: '100px 0',
+    textAlign: 'center',
+  },
+  container: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    padding: '0 20px',
+  },
+  title: {
+    fontSize: '3rem',
+    fontWeight: 'bold',
+    marginBottom: '20px',
+    color: '#1f2937',
+  },
+  subtitle: {
+    fontSize: '1.25rem',
+    color: '#6b7280',
+    maxWidth: '600px',
+    margin: '0 auto',
+  },
+  contentSection: {
+    padding: '80px 0',
+  },
+  contentGrid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '50px',
+    '@media (max-width: 768px)': {
+      gridTemplateColumns: '1fr',
+    },
+  },
+  formContainer: {
+    padding: '40px',
+    backgroundColor: '#fff',
+    borderRadius: '12px',
+    boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+  },
+  formTitle: {
+    fontSize: '1.75rem',
+    fontWeight: 'bold',
+    marginBottom: '30px',
+    color: '#1f2937',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '20px',
+  },
+  formGroup: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  label: {
+    fontSize: '14px',
+    fontWeight: '500',
+    marginBottom: '8px',
+    color: '#374151',
+  },
+  input: {
+    padding: '12px 16px',
+    border: '1px solid #d1d5db',
+    borderRadius: '8px',
+    fontSize: '16px',
+    transition: 'all 0.3s ease',
+    ':focus': {
+      outline: 'none',
+      borderColor: '#2563eb',
+      boxShadow: '0 0 0 3px rgba(37, 99, 235, 0.1)',
+    },
+  },
+  textarea: {
+    padding: '12px 16px',
+    border: '1px solid #d1d5db',
+    borderRadius: '8px',
+    fontSize: '16px',
+    resize: 'vertical',
+    minHeight: '120px',
+    fontFamily: 'inherit',
+    transition: 'all 0.3s ease',
+    ':focus': {
+      outline: 'none',
+      borderColor: '#2563eb',
+      boxShadow: '0 0 0 3px rgba(37, 99, 235, 0.1)',
+    },
+  },
+  submitButton: {
+    padding: '15px 30px',
+    backgroundColor: '#2563eb',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '8px',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    ':hover': {
+      backgroundColor: '#1d4ed8',
+      transform: 'translateY(-2px)',
+      boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+    },
+  },
+  infoContainer: {
+    padding: '40px',
+    backgroundColor: '#f9fafb',
+    borderRadius: '12px',
+  },
+  infoTitle: {
+    fontSize: '1.75rem',
+    fontWeight: 'bold',
+    marginBottom: '30px',
+    color: '#1f2937',
+  },
+  infoItem: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '20px',
+    marginBottom: '30px',
+  },
+  infoIcon: {
+    fontSize: '24px',
+    width: '50px',
+    height: '50px',
+    backgroundColor: '#2563eb',
+    color: '#fff',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  infoSubtitle: {
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    marginBottom: '5px',
+    color: '#1f2937',
+  },
+  infoText: {
+    fontSize: '14px',
+    color: '#6b7280',
+    lineHeight: '1.5',
+  },
+}
+
+export default Contact
