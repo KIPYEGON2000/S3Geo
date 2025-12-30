@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import '../styles/App.css'
+import logo from '../../public/company-logo.png'
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -11,7 +12,7 @@ const Header = () => {
         <div style={styles.navbar}>
           <Link to="/" style={styles.logo}>
             <img 
-              src="/company-logo.png" 
+              src={logo}
               alt="Company Logo" 
               style={styles.logoImg}
               onError={(e) => {
