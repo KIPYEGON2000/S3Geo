@@ -89,9 +89,7 @@ const styles = {
   desktopNav: {
     display: 'flex',
     gap: '30px',
-    '@media (max-width: 768px)': {
-      display: 'none',
-    },
+   
   },
   navLink: {
     textDecoration: 'none',
@@ -109,9 +107,7 @@ const styles = {
     fontSize: '24px',
     cursor: 'pointer',
     color: '#374151',
-    '@media (max-width: 768px)': {
-      display: 'block',
-    },
+   
   },
   mobileNav: {
     display: 'none',
