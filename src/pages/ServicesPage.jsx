@@ -59,7 +59,7 @@ const ServicesPage = () => {
           <p style={styles.ctaText}>
             Contact us to discuss how we can create a tailored solution for your business.
           </p>
-          <a href="/contact" style={styles.ctaButton}>Get in Touch</a>
+          <a href="/#/contact" style={styles.ctaButton}>Get in Touch</a>
         </div>
       </section>
     </div>
