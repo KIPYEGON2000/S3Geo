@@ -98,7 +98,7 @@ const Contact = () => {
                 <div>
                   <h3 style={styles.infoSubtitle}>Address</h3>
                   <p style={styles.infoText}>Online </p>
-                  <p style={styles.infoText}>Bomet</p>
+                  <p style={styles.infoText}>Nairobi, Kenya</p>
                 </div>
               </div>
 
@@ -116,7 +116,7 @@ const Contact = () => {
                 <div>
                   <h3 style={styles.infoSubtitle}>Email</h3>
                   <p style={styles.infoText}>kipyegontooamos@gmail.com</p>
-                  <p style={styles.infoText}>kipyegontooamos@gmail.com</p>
+                  
                 </div>
               </div>
             </div>
