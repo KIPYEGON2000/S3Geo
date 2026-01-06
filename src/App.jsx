@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import ServicesPage from './pages/ServicesPage'
 import Contact from './pages/Contact'
-import './App.css'  // Changed from './styles/App.css'
+import './App.css'
 
 function App() {
   return (
