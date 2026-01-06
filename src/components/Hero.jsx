@@ -45,6 +45,8 @@ const styles = {
     marginBottom: '30px',
     opacity: '0.9',
     lineHeight: '1.6',
+    color:'white',
+    
   },
   buttons: {
     display: 'flex',

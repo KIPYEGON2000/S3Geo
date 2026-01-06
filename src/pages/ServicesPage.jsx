@@ -91,6 +91,7 @@ const styles = {
     opacity: '0.9',
     maxWidth: '600px',
     margin: '0 auto',
+    color:'white'
   },
   servicesSection: {
     padding: '80px 0',

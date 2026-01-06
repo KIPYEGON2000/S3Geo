@@ -1,4 +1,6 @@
 import '../App.css'
+// Import the logo image
+import companyLogo from '../assets/company-logo.png' // Adjust path as needed
 
 const About = () => {
   return (
@@ -20,19 +22,39 @@ const About = () => {
             <div className="content-text">
               <h2>Our Story</h2>
               <p>
-                Founded in 2020, our company has been at the forefront of digital innovation. 
+                Founded in 2025, our company has been at the forefront of digital innovation. 
                 We started with a simple mission: to help businesses leverage technology to achieve their goals.
               </p>
               <p>
-                Today, we serve clients across various industries, providing tailored solutions 
-                that deliver real results. Our team of experts is passionate about technology 
+                Our team of experts is passionate about technology 
                 and committed to excellence.
               </p>
+              
+              {/* Portfolio Link Section */}
+              <div className="portfolio-section">
+                <h3>Featured Project</h3>
+                <p>
+                  Explore our interactive geospatial dashboard that showcases our technical expertise:
+                </p>
+                <a 
+                  href="https://geo-dashboad-8.onrender.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="portfolio-button"
+                >
+                  View Geo Dashboard ↗
+                </a>
+              </div>
             </div>
             
             <div className="image-placeholder">
               <div className="image-box">
-                <p>Company Image</p>
+                {/* Replace placeholder with actual logo */}
+                <img 
+                  src={companyLogo} 
+                  alt="S3GEO Company Logo" 
+                  className="company-logo"
+                />
               </div>
             </div>
           </div>
