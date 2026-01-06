@@ -11,8 +11,8 @@ const Hero = () => {
             Transforming geospatial intelligence into actionable insights for business growth and climate resilience.
           </p>
           <div style={styles.buttons}>
-            <a href="/contact" style={styles.primaryButton}>Get Started</a>
-            <a href="/services" style={styles.secondaryButton}>Our Services</a>
+            <a href="/#/contact" style={styles.primaryButton}>Get Started</a>
+            <a href="/#/services" style={styles.secondaryButton}>Our Services</a>
           </div>
         </div>
       </div>

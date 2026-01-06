@@ -23,7 +23,7 @@ const Footer = () => {
           <div style={styles.section}>
             <h3 style={styles.heading}>Contact Us</h3>
             <p style={styles.text}>online</p>
-            <p style={styles.text}>Bomet</p>
+            <p style={styles.text}>Nairobi, Kenya</p>
             <p style={styles.text}>kipyegontooamos@gmail.com</p>
             <p style={styles.text}>(+254)708-808-737</p>
           </div>
