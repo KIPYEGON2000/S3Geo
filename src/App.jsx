@@ -5,14 +5,14 @@ import Home from './pages/Home'
 import About from './pages/About'
 import ServicesPage from './pages/ServicesPage'
 import Contact from './pages/Contact'
-import './styles/App.css'
+import './App.css'  // Changed from './styles/App.css'
 
 function App() {
   return (
     <Router>
-      <div style={styles.app}>
+      <div className="app">
         <Header />
-        <main style={styles.main}>
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -24,17 +24,6 @@ function App() {
       </div>
     </Router>
   )
-}
-
-const styles = {
-  app: {
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  main: {
-    flex: 1,
-  }
 }
 
 export default App
