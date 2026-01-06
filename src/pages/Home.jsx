@@ -41,7 +41,7 @@ const Home = () => {
           </div>
           
           <div style={styles.center}>
-            <a href="/services" style={styles.viewAllButton}>View All Services</a>
+            <a href="/#/services" style={styles.viewAllButton}>View All Services</a>
           </div>
         </div>
       </section>
@@ -53,7 +53,7 @@ const Home = () => {
           <p style={styles.ctaText}>
             Contact us today to discuss how we can help your business grow.
           </p>
-          <a href="/contact" style={styles.ctaButton}>Contact Us</a>
+          <a href="/#/contact" style={styles.ctaButton}>Contact Us</a>
         </div>
       </section>
     </>
@@ -152,6 +152,7 @@ const styles = {
     maxWidth: '600px',
     marginLeft: 'auto',
     marginRight: 'auto',
+    color: '#fff',
   },
   ctaButton: {
     display: 'inline-block',

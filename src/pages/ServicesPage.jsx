@@ -45,7 +45,7 @@ const ServicesPage = () => {
                 <div style={styles.serviceIcon}>{service.icon}</div>
                 <h3 style={styles.serviceTitle}>{service.title}</h3>
                 <p style={styles.serviceDescription}>{service.description}</p>
-                <a href="/contact" style={styles.learnMore}>Learn More →</a>
+                <a href="/#/contact" style={styles.learnMore}>Learn More →</a>
               </div>
             ))}
           </div>
@@ -150,7 +150,7 @@ const styles = {
   },
   ctaText: {
     fontSize: '1.125rem',
-    color: '#6b7280',
+    color: '#f9fafdff',
     marginBottom: '30px',
     maxWidth: '600px',
     marginLeft: 'auto',
