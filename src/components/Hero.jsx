@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="container" style={styles.container}>
         <div style={styles.content}>
           <h1 style={styles.title}>S3GEO</h1>
-          <h2>Connecting Data, Illuminating Places.</h2>
+          <h2>Insight You Can Map.</h2>
           <p style={styles.subtitle}>
             Transforming geospatial intelligence into actionable insights for business growth and climate resilience.
           </p>

@@ -8,7 +8,7 @@ const Footer = () => {
           <div style={styles.section}>
             <h3 style={styles.heading}>Synapse Spatial Solutions</h3>
             <p style={styles.text}>
-             Connecting Data, Illuminating Places.
+             Insight You Can Map.
             </p>
           </div>
           

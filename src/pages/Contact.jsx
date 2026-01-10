@@ -7,6 +7,8 @@ const Contact = () => {
     email: '',
     message: '',
   })
+  const [status, setStatus] = useState('')
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setFormData({
@@ -15,10 +17,38 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    alert('Thank you for your message! We will get back to you soon.')
-    setFormData({ name: '', email: '', message: '' })
+    setStatus('sending')
+    setError('')
+
+    try {
+      // REPLACE THIS WITH YOUR FORMSPREE FORM ID
+      const response = await fetch('https://formspree.io/f/xykkgnow', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New Contact from ${formData.name}`,
+        }),
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', message: '' })
+        setTimeout(() => setStatus(''), 5000)
+      } else {
+        setStatus('error')
+        setError('Failed to send message. Please try again.')
+      }
+    } catch (err) {
+      setStatus('error')
+      setError('Network error. Please check your connection.')
+    }
   }
 
   return (
@@ -42,7 +72,7 @@ const Contact = () => {
               <h2 style={styles.formTitle}>Send us a Message</h2>
               <form onSubmit={handleSubmit} style={styles.form}>
                 <div style={styles.formGroup}>
-                  <label htmlFor="name" style={styles.label}>Name</label>
+                  <label htmlFor="name" style={styles.label}>Name *</label>
                   <input
                     type="text"
                     id="name"
@@ -56,7 +86,7 @@ const Contact = () => {
                 </div>
 
                 <div style={styles.formGroup}>
-                  <label htmlFor="email" style={styles.label}>Email</label>
+                  <label htmlFor="email" style={styles.label}>Email *</label>
                   <input
                     type="email"
                     id="email"
@@ -70,7 +100,7 @@ const Contact = () => {
                 </div>
 
                 <div style={styles.formGroup}>
-                  <label htmlFor="message" style={styles.label}>Message</label>
+                  <label htmlFor="message" style={styles.label}>Message *</label>
                   <textarea
                     id="message"
                     name="message"
@@ -83,8 +113,28 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit" style={styles.submitButton}>
-                  Send Message
+                {/* Status Messages */}
+                {status === 'success' && (
+                  <div style={styles.successMessage}>
+                    ✅ Thank you! Your message has been sent. We'll get back to you soon.
+                  </div>
+                )}
+                
+                {status === 'error' && (
+                  <div style={styles.errorMessage}>
+                    ❌ {error || 'Failed to send. Please try again or email us directly.'}
+                  </div>
+                )}
+
+                <button 
+                  type="submit" 
+                  style={{
+                    ...styles.submitButton,
+                    ...(status === 'sending' && { opacity: 0.7, cursor: 'not-allowed' })
+                  }}
+                  disabled={status === 'sending'}
+                >
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
@@ -107,7 +157,6 @@ const Contact = () => {
                 <div>
                   <h3 style={styles.infoSubtitle}>Phone</h3>
                   <p style={styles.infoText}>(+254) 708-808-737</p>
-                  
                 </div>
               </div>
 
@@ -116,7 +165,6 @@ const Contact = () => {
                 <div>
                   <h3 style={styles.infoSubtitle}>Email</h3>
                   <p style={styles.infoText}>kipyegontooamos@gmail.com</p>
-                  
                 </div>
               </div>
             </div>
@@ -160,9 +208,6 @@ const styles = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gap: '50px',
-    '@media (max-width: 768px)': {
-      gridTemplateColumns: '1fr',
-    },
   },
   formContainer: {
     padding: '40px',
@@ -197,11 +242,6 @@ const styles = {
     borderRadius: '8px',
     fontSize: '16px',
     transition: 'all 0.3s ease',
-    ':focus': {
-      outline: 'none',
-      borderColor: '#2563eb',
-      boxShadow: '0 0 0 3px rgba(37, 99, 235, 0.1)',
-    },
   },
   textarea: {
     padding: '12px 16px',
@@ -212,11 +252,6 @@ const styles = {
     minHeight: '120px',
     fontFamily: 'inherit',
     transition: 'all 0.3s ease',
-    ':focus': {
-      outline: 'none',
-      borderColor: '#2563eb',
-      boxShadow: '0 0 0 3px rgba(37, 99, 235, 0.1)',
-    },
   },
   submitButton: {
     padding: '15px 30px',
@@ -228,11 +263,22 @@ const styles = {
     fontWeight: 'bold',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    ':hover': {
-      backgroundColor: '#1d4ed8',
-      transform: 'translateY(-2px)',
-      boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
-    },
+  },
+  successMessage: {
+    padding: '12px 16px',
+    backgroundColor: '#d1fae5',
+    color: '#065f46',
+    borderRadius: '8px',
+    marginBottom: '15px',
+    fontSize: '14px',
+  },
+  errorMessage: {
+    padding: '12px 16px',
+    backgroundColor: '#fee2e2',
+    color: '#991b1b',
+    borderRadius: '8px',
+    marginBottom: '15px',
+    fontSize: '14px',
   },
   infoContainer: {
     padding: '40px',
@@ -275,4 +321,37 @@ const styles = {
   },
 }
 
+// ADD THESE MEDIA QUERIES TO YOUR STYLES
+// You can add this after your existing styles object
+Object.assign(styles.contentGrid, {
+  '@media (max-width: 768px)': {
+    gridTemplateColumns: '1fr',
+  }
+})
+
+Object.assign(styles.input, {
+  ':focus': {
+    outline: 'none',
+    borderColor: '#2563eb',
+    boxShadow: '0 0 0 3px rgba(37, 99, 235, 0.1)',
+  }
+})
+
+Object.assign(styles.textarea, {
+  ':focus': {
+    outline: 'none',
+    borderColor: '#2563eb',
+    boxShadow: '0 0 0 3px rgba(37, 99, 235, 0.1)',
+  }
+})
+
+Object.assign(styles.submitButton, {
+  ':hover': {
+    backgroundColor: '#1d4ed8',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+  }
+})
+
+// Make sure this export statement is at the very end
 export default Contact
