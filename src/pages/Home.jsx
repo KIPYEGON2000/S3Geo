@@ -30,6 +30,13 @@ const Home = () => {
                 Satellite imagery analysis and earth observation for comprehensive environmental monitoring.
               </p>
             </div>
+             <div style={styles.serviceCard}>
+              <div style={styles.serviceIcon}>🔭</div>
+              <h3 style={styles.serviceTitle}>Land Survey Services</h3>
+              <p style={styles.serviceDescription}>
+                Precise boundary surveys, topographic mapping, and cadastral assessments for land development and planning.
+              </p>
+            </div>
             
             <div style={styles.serviceCard}>
               <div style={styles.serviceIcon}>🔧</div>

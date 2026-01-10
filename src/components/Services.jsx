@@ -13,6 +13,11 @@ const Services = () => {
       description: 'Satellite imagery analysis and earth observation for comprehensive environmental monitoring.',
     },
     {
+  icon: '🔭',
+  title: 'Land Survey Services',
+  description: 'Expert surveying solutions including geodetic surveys, control networks, and precise coordinate determination.',
+},
+    {
       icon: '🔧',
       title: 'Business Intelligence',
       description: 'Location-based insights to optimize operations and identify market opportunities.',

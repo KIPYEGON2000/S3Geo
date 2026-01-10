@@ -13,6 +13,11 @@ const ServicesPage = () => {
       description: 'Satellite imagery analysis and earth observation for comprehensive environmental monitoring.',
     },
     {
+  icon: '🔭',
+  title: 'Land Survey Services',
+  description: 'Comprehensive land surveying including boundary determination, elevation mapping, and site analysis.',
+},
+    {
       icon: '🔧',
       title: 'Business Intelligence',
       description: 'Location-based insights to optimize operations and identify market opportunities.',

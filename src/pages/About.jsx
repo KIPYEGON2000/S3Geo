@@ -87,7 +87,7 @@ const About = () => {
             <div className="card">
               <h3>Excellence</h3>
               <p>
-                Synapse Spatial Solutions (S3Geo) is a cutting-edge geospatial engineering firm specializing in GIS, remote sensing, and climate analytics.
+                Synapse Spatial Solutions (S3Geo) is a cutting-edge geospatial engineering firm specializing in GIS, remote sensing, Land Survey, Data analitic, and climate analytics.
               </p>
             </div>
           </div>
